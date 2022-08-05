@@ -1,10 +1,12 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
+import { HelloWorld } from "./components/HelloWorld";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
     {
       id: "f2hVmkrM8Svr6ittxtFD2L",
-      token: "LmFG7Y1GDDbMRUAGejg0T5Jr5mIk4JLMwqIjuMP7xjDWIhdmqsUfKy4qc6BsdWy1dyC9dBf36OzZ4DW0ROQ",
+      token:
+        "LmFG7Y1GDDbMRUAGejg0T5Jr5mIk4JLMwqIjuMP7xjDWIhdmqsUfKy4qc6BsdWy1dyC9dBf36OzZ4DW0ROQ",
     },
   ],
 
@@ -12,7 +14,15 @@ export const PLASMIC = initPlasmicLoader({
   // For development, you can set preview to true, which will use the unpublished
   // project, allowing you to see your designs without publishing.  Please
   // only use this for development, as this is significantly slower.
-  preview: false,
+  preview: true,
+});
+
+PLASMIC.registerComponent(HelloWorld, {
+  name: "HelloWorld",
+  props: {
+    verbose: "boolean",
+    children: "slot",
+  },
 });
 
 // You can register any code components that you want to use here; see
